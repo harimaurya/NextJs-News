@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Merriweather } from "next/font/google";
 import "./globals.css";
-import { Main } from "next/document";
 import MainHeader from "@/components/main-header/main-header";
 
 
