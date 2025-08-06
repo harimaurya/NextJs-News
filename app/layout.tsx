@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Merriweather } from "next/font/google";
 import "./globals.css";
+import { Main } from "next/document";
+import MainHeader from "@/components/main-header/main-header";
 
 
 const merriWeather = Merriweather({
@@ -24,6 +26,7 @@ export default function RootLayout({
       <body
         className={`${merriWeather.variable}} antialiased m-0 p-0 bg-(--bg-color) text-(--text-color) text-base line-height-1.5`}
       >
+        <MainHeader />
         {children}
       </body>
     </html>
