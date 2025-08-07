@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MainNavLinks from "./main-nav";
 
 export default function MainHeader() {
   return (
@@ -9,12 +10,7 @@ export default function MainHeader() {
             Next.js News
           </Link>
         </div>
-        <nav>
-          <ul className="flex space-x-4">
-            <li><Link href="/news" className="hover:underline">News</Link></li>
-            <li><Link href="/archive" className="hover:underline">Archive</Link></li>
-          </ul>
-        </nav>
+        <MainNavLinks />
       </div>
     </header>
   );
