@@ -41,6 +41,10 @@ export default async function FilteredArchivePage({
     newsContent = <NewsList news={news} />;
   }
 
+  if( (selectedYear && !getAvailableNewsYears().includes(+selectedYear)) || (selectedMonth && !getAvailableNewsMonths(+selectedYear).includes(+selectedMonth))) {
+    throw new Error("Invalid filter.");
+  }
+
   return (
     <section id="filtered-archive" className="mt-4">
       <header id="archive-header" className="mb-4">
