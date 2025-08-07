@@ -1,5 +1,6 @@
 import { DUMMY_NEWS } from "@/data/news";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 export default async function NewsDetailPage({ params }: { params: { id: string } }) {
     const { id } = await params;
@@ -7,7 +8,7 @@ export default async function NewsDetailPage({ params }: { params: { id: string 
     const newsItem = DUMMY_NEWS.find(news => news.id === id);
 
     if (!newsItem) {
-      return <p className="text-center mt-4">News item not found.</p>;
+      return notFound();
     }
 
   return (
