@@ -1,8 +1,24 @@
+import { getAvailableNewsYears } from "@/lib/news";
+import Link from "next/link";
+
 export default function ArchivePage() {
+    const years = getAvailableNewsYears();
+
   return (
     <div className="mt-4">
-      <h1 className="text-3xl font-bold">Archive</h1>
-      <p className="mt-2">This is the archive page.</p>
+      <header id="archive-header">
+        <nav>
+            <ul className="flex gap-4">
+                {years.map((year) => (
+                    <li key={year}>
+                        <Link href={`/archive/${year}`} className="text-gray-200 hover:underline hover:text-white">
+                            {year}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+      </header>
     </div>
   );
 }

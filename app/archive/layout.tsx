@@ -2,7 +2,7 @@ export default function ArchiveLayout({ archive, latest }: { archive: React.Reac
   return (
     <div className="archive-layout px-4">
         <h1 className="text-3xl font-bold mt-4">News Archive</h1>
-        <section className="archive-list">
+        <section className="archive-list mt-4">
             {archive}
         </section>
         <hr className="my-8 border-t" />
