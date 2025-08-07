@@ -6,7 +6,7 @@ export default function NewsPage() {
   return (
     <div id="news">
       <h1 className="mt-[3rem] text-4xl font-bold text-center">Latest News</h1>
-      <div className="list mt-8 px-3.5">
+      <div className="mt-8 px-3.5">
         <ul className="news-list space-y-4 flex flex-wrap gap-4">
           {DUMMY_NEWS.map((news) => (
             <li key={news.id} className="news-item">
