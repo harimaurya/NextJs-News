@@ -12,6 +12,7 @@ export default function MainHeader() {
         <nav>
           <ul className="flex space-x-4">
             <li><Link href="/news" className="hover:underline">News</Link></li>
+            <li><Link href="/archive" className="hover:underline">Archive</Link></li>
           </ul>
         </nav>
       </div>
