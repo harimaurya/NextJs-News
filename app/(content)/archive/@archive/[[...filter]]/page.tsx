@@ -28,12 +28,12 @@ export default async function FilteredArchivePage({
   let links = getAvailableNewsYears();
 
   if (selectedYear && !selectedMonth) {
-    news = getNewsForYear(+selectedYear);
-    links = getAvailableNewsMonths(+selectedYear);
-  } 
-  
+    news = getNewsForYear(selectedYear);
+    links = getAvailableNewsMonths(selectedYear);
+  }
+
   if (selectedYear && selectedMonth) {
-    news = getNewsForYearAndMonth(+selectedYear, +selectedMonth);
+    news = getNewsForYearAndMonth(selectedYear, selectedMonth);
     links = [];
   }
 
@@ -41,7 +41,13 @@ export default async function FilteredArchivePage({
     newsContent = <NewsList news={news} />;
   }
 
-  if( (selectedYear && !getAvailableNewsYears().includes(+selectedYear)) || (selectedMonth && !getAvailableNewsMonths(+selectedYear).includes(+selectedMonth))) {
+  const availableYears = getAvailableNewsYears();
+  const availableNewsMonths = getAvailableNewsMonths(selectedYear);
+
+  if (
+    (selectedYear && !availableYears.includes(selectedYear)) ||
+    (selectedMonth && !availableNewsMonths.includes(selectedMonth))
+  ) {
     throw new Error("Invalid filter.");
   }
 
@@ -51,7 +57,6 @@ export default async function FilteredArchivePage({
         <nav>
           <ul className="flex gap-4">
             {links.map((link) => {
-
               const href = selectedYear
                 ? `/archive/${selectedYear}/${link}`
                 : `/archive/${link}`;

@@ -1,14 +1,14 @@
-import { DUMMY_NEWS } from "@/data/news";
+import { NewsItem } from "@/data/news";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function NewsList({ news }: { news: typeof DUMMY_NEWS }) {
+export default function NewsList({ news }: { news: NewsItem[] }) {
   return (
     <ul className="news-list space-y-4 flex flex-wrap gap-4">
       {news.map((news) => (
-        <li key={news.id} className="news-item">
+        <li key={news.slug} className="news-item">
           <Link
-            href={`/news/${news.id}`}
+            href={`/news/${news.slug}`}
             className="block border border-gray-600 rounded-lg"
           >
             <div className="news-thumbnail">

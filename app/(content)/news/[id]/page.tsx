@@ -1,4 +1,4 @@
-import { DUMMY_NEWS } from "@/data/news";
+import { getNewsItem } from "@/lib/news";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -10,7 +10,7 @@ export default async function NewsDetailPage({
 }) {
   const { id } = await params;
 
-  const newsItem = DUMMY_NEWS.find((news) => news.id === id);
+  const newsItem = getNewsItem(id);
 
   if (!newsItem) {
     return notFound();
@@ -20,7 +20,7 @@ export default async function NewsDetailPage({
     <article id="news-detail" className="news-article">
       <header>
         <div className="article-image flex justify-center">
-          <Link href={`/news/${newsItem.id}/image`} className="block">
+          <Link href={`/news/${newsItem.slug}/image`} className="block">
             <Image
               src={`/images/news/${newsItem.image}`}
               alt={newsItem.title}
